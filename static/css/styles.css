@@ -38,7 +38,7 @@
     cursor: pointer;
 }
 
-#lead-form {
+#lead-form, #customer-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,13 +46,15 @@
     width: 100%;
 }
 
-#lead-form > input {
+#lead-form > input,
+#customer-form > input {
     width: 80%;
     padding: 15px 10px;
     margin: 10px 0;
 }
 
-#lead-form > input:focus {
+#lead-form > input:focus,
+#customer-form > input:focus {
     outline: none;
 }
 
@@ -90,5 +92,20 @@ table th {
     text-align: left;
     background-color: black;
     color: white;
+}
+
+.open-modal {
+    color: #fff;
+    background-color: rgb(32, 30, 30);
+    border: none;
+    padding: 15px 10px;
+    width: 20%;
+    border-radius: 5px;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.open-modal:hover {
+    cursor: pointer;
 }
 
