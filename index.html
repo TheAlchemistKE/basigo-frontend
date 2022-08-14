@@ -1,48 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BasiGO | SPA</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BasiGO | SPA</title>
+        <link rel="stylesheet" href="./static/css/styles.css" />
+    </head>
+    <body>
+        <section id="leads">
+            <h2>Leads Table</h2>
+            <!-- Trigger/Open The Modal -->
+            <button id="myBtn">Create Lead</button>
 
-    <section id="leads">
-        <h2>Leads Table</h2>
-        <button>Create Lead</button>
-        <table id="leads-table">
-            <thead>
-                <th>First Name</th>
-                <th>Middle Name</th>
-                <th>Last Name</th>
-                <th>Gender</th>
-                <th>Location</th>
-                <th>Role</th>
-            </thead>
-            <tbody></tbody>
-        </table>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <form id="lead-form">
+                        <input
+                            type="text"
+                            name=""
+                            id="lead-first-name"
+                            placeholder="First Name"
+                        />
+                        <input
+                            type="text"
+                            name=""
+                            id="lead-middle-name"
+                            placeholder="Middle Name"
+                        />
+                        <input
+                            type="text"
+                            name=""
+                            id="lead-last-name"
+                            placeholder="Last Name"
+                        />
+                        <input type="email" name="email" id="lead-email" placeholder="Email">
 
-    </section>
+                        <!-- I would have added a randomly generated password that the lead could change on first log in. -->
+                        <input type="password" placeholder="Password" id="lead-password">
+                        <input
+                            type="text"
+                            name=""
+                            id="lead-location"
+                            placeholder="Location"
+                        />
+                        <div class="gender">
+                            <h3>Please Choose Gender</h3>
+                            <input
+                                type="radio"
+                                id="male"
+                                name="gender"
+                                value="male"
+                            />
+                            <label for="male">Male</label>
+                            <br/>
+                            <input
+                                type="radio"
+                                id="female"
+                                name="gender"
+                                value="female"
+                            />
+                            <label for="female">Female</label><br />
+                            <input
+                                type="radio"
+                                id="rather-not-say"
+                                name="gender"
+                                value="rather-not-say"
+                            />
+                            <label for="non-binary">Non-Binary</label>
+                            <br>
+                            <input
+                                type="radio"
+                                id="non-binary"
+                                name="gender"
+                                value="non-binary"
+                            />
+                            <label for="non-binary">Non-Binary</label>
+                        </div>
+                        <input
+                            type="text"
+                            name=""
+                            id="lead-role"
+                            placeholder="Role"
+                        />
+                        <button class="create" id="lead-submit">Create New Lead</button>
+                    </form>
+                </div>
+            </div>
+            <table id="leads-table">
+                <thead>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Location</th>
+                    <th>Role</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
 
-    <section id="customers">
-        <h2>Customers Table</h2>
-        <button>Create Customer</button>
-        <table id="customers-table">
-            <thead>
-                <th>First Name</th>
-                <th>Middle Name</th>
-                <th>Last Name</th>
-                <th>Gender</th>
-                <th>Location</th>
-                <th>Role</th>
-                <th>Annual Earning </th>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <section id="customers">
+            <h2>Customers Table</h2>
+            <button>Create Customer</button>
+            <table id="customers-table">
+                <thead>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Location</th>
+                    <th>Role</th>
+                    <th>Annual Earning</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal')
 
-    </section>
-    
-    <script src="./src/index.js"></script>
-</body>
+            // Get the button that opens the modal
+            var btn = document.getElementById('myBtn')
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName('close')[0]
+
+            // When the user clicks on the button, open the modal
+            btn.onclick = function () {
+                modal.style.display = 'block'
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = 'none'
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = 'none'
+                }
+            }
+        </script>
+
+        <script src="./src/index.js"></script>
+    </body>
 </html>
