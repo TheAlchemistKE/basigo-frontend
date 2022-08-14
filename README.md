@@ -12,5 +12,6 @@
 To get started, you can clone this repository and run the following command:
 
 ```bash
-git clone
+git clone https://github.com/TheAlchemistKE/basigo-frontend.git
 ```
+After cloning the repo, run the `index.html` file in your browser.
