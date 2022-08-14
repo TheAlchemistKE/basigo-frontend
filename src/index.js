@@ -156,7 +156,7 @@ const createCustomer = async (
     photo
 ) => {
     const response = await fetch(
-        `https://basi-go-ke.herokuapp.com/api/leads/4ff1cd5c-4db1-4409-a23a-a23231c191af/customers`,
+        `https://basi-go-ke.herokuapp.com/api/leads/1c896006-bfa5-4056-a69b-ac7355d96d91/customers`,
         {
             method: 'POST',
             headers: {
@@ -211,7 +211,6 @@ const createLead = async (
 const loadDataInTable = async (table, data) => {
     const tbody = table.querySelector('tbody')
     const newData = await data
-    console.log(newData)
 
     // Clear Table
     tbody.innerHTML = ''
