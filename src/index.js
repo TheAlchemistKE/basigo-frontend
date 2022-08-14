@@ -156,7 +156,7 @@ const createCustomer = async (
     photo
 ) => {
     const response = await fetch(
-        `https://basi-go-ke.herokuapp.com/api/leads/1c896006-bfa5-4056-a69b-ac7355d96d91/customers`,
+        `https://basi-go-ke.herokuapp.com/api/leads/c6957afb-e62d-4f66-9d66-8d5db86921de/customers`,
         {
             method: 'POST',
             headers: {
