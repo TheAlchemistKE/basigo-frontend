@@ -1,10 +1,3 @@
-// const cloudinary = require('cloudinary').v2
-
-// cloudinary.config({
-//     cloud_name: 'headhuntx',
-//     api_key: '129328131255213',
-//     api_secret: 'AoV3fLNwAm3-Ug-NakAWveGuBcQ',
-// })
 const fetchData = async (endpoint) => {
     const response = await fetch(
         `https://basi-go-ke.herokuapp.com/api/${endpoint}`
@@ -216,18 +209,44 @@ const createLead = async (
 }
 
 const loadDataInTable = async (table, data) => {
-    let tableBody = document
-        .getElementById(table)
-        .getElementsByTagName('tbody')[0]
-    tableBody.innerHTML = ''
-    data.forEach((item) => {
-        let row = tableBody.insertRow()
-        Object.keys(item).forEach((key) => {
-            let cell = row.insertCell()
-            cell.innerHTML = item[key]
-        })
-    })
+    const tbody = table.querySelector('tbody')
+    const newData = await data
+    console.log(newData)
+
+    // Clear Table
+    tbody.innerHTML = ''
+
+    // Load Data
+    for (const item of newData) {
+        const row = document.createElement('tr')
+
+        // items.map((item) => {
+        //     const cellEl = document.createElement('td');
+        //     cellEl.textContent = item
+
+        //     row.appendChild(cellEl)
+        // })
+
+        for (const key in item) {
+            const cellEl = document.createElement('td');
+            cellEl.textContent = item[key]
+
+            row.appendChild(cellEl)
+
+        }
+
+        tbody.appendChild(row)
+    }
 }
+
+const leadsTable = document.getElementById('leads-table')
+const customersTable = document.getElementById('customers-table')
+
+loadDataInTable(leadsTable, getLeads())
+loadDataInTable(customersTable, getCustomers())
+
+
+
 
 // Get the modal
 let modal = document.getElementById('leadModal')
