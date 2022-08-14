@@ -176,7 +176,7 @@ const createCustomer = async (
                 gender,
                 location,
                 annualEarning,
-                photo
+                photo,
             }),
         }
     )
@@ -238,7 +238,13 @@ let btn = document.getElementById('leadBtn')
 let customerBtn = document.getElementById('customerBtn')
 
 // Get the <span> element that closes the modal
-let span = document.getElementsByClassName('close')[0]
+let spans = document.querySelectorAll('.close')
+spans.forEach((span) => {
+    span.addEventListener('click', () => {
+        modal.style.display = 'none'
+        customerModal.style.display = 'none'
+    })
+})
 
 // When the user clicks on the button, open the modal
 btn.onclick = function () {
@@ -248,14 +254,11 @@ customerBtn.onclick = function () {
     customerModal.style.display = 'block'
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = 'none'
-}
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = 'none'
+    } else if (event.target == customerModal) {
+        customerModal.style.display = 'none'
     }
 }
