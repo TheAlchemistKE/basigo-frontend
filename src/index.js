@@ -118,34 +118,8 @@ document
         let response = await submitNewCustomer()
         console.log(response)
     })
-
-let photoUrl = ''
-
-// IMAGE UPLOAD
-// const cloudName = 'headhuntx' // replace with your own cloud name
-// const uploadPreset = 'hudrun8x' // replace with your own upload preset
-
-// const myWidget = cloudinary.createUploadWidget(
-//     {
-//         cloudName: cloudName,
-//         uploadPreset: uploadPreset,
-//     },
-//     (error, result) => {
-//         if (!error && result && result.event === 'success') {
-//             console.log('Done! Here is the image info: ', result.info)
-//             photoUrl = result.info.secure_url
-//         }
-//     }
-// )
-
-// document.getElementById('upload_widget').addEventListener(
-//     'click',
-//     function () {
-//         myWidget.open()
-//     },
-//     false
-// )
-
+// I would have setup cloudinary for the image upload or use AWS S3 to store images 
+// and populate the photo url field with the image url gotten from the third party service..
 const createCustomer = async (
     firstName,
     middleName,
@@ -219,19 +193,11 @@ const loadDataInTable = async (table, data) => {
     for (const item of newData) {
         const row = document.createElement('tr')
 
-        // items.map((item) => {
-        //     const cellEl = document.createElement('td');
-        //     cellEl.textContent = item
-
-        //     row.appendChild(cellEl)
-        // })
-
         for (const key in item) {
-            const cellEl = document.createElement('td');
+            const cellEl = document.createElement('td')
             cellEl.textContent = item[key]
 
             row.appendChild(cellEl)
-
         }
 
         tbody.appendChild(row)
@@ -243,9 +209,6 @@ const customersTable = document.getElementById('customers-table')
 
 loadDataInTable(leadsTable, getLeads())
 loadDataInTable(customersTable, getCustomers())
-
-
-
 
 // Get the modal
 let modal = document.getElementById('leadModal')
